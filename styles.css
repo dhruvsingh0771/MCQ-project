@@ -1,0 +1,108 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+#start .card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+#start .card ul li {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#timer {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.form-check-input:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.form-check-label {
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.btn {
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+@media (max-width: 576px) {
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .card-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .card-footer .btn {
+        width: 100%;
+    }
+}
+
+:root{
+  --bg: #ffffff;
+  --fg: #111111;
+  --card-bg: #f7f7f7;
+  --accent: #0b66ff;
+}
+
+[data-theme="dark"]{
+  --bg: #0e0f11;
+  --fg: #e6e6e6;
+  --card-bg: #111214;
+  --accent: #4ea3ff;
+}
+
+/* apply variables across page */
+body{
+  background: var(--bg);
+  color: var(--fg);
+  transition: background .2s, color .2s;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* style controls and modal (basic) */
+#exam-controls select, #exam-controls button{
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: var(--card-bg);
+  color: var(--fg);
+}
+
+#end-exam-btn {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#result-modal{
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,0.45);
+  z-index: 9999;
+}
+
+#result-content{
+  background: var(--card-bg);
+  color: var(--fg);
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 320px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}

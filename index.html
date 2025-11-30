@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online MCQ Test Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Start Page -->
+    <section id="start" class="vh-100 d-flex align-items-center justify-content-center bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card p-4 text-center shadow">
+                        <h2 class="mb-4">Online MCQ Test Platform</h2>
+                        <ul class="text-start mb-4 list-unstyled">
+                            <li class="mb-2">• 15 random questions from a pool of 50 (on HTML, CSS, JS, Bootstrap).</li>
+                            <li class="mb-2">• +1 mark per correct answer (0 for wrong/unanswered).</li>
+                            <li class="mb-2">• Time limit: 30 minutes (auto-submit on expiry).</li>
+                        </ul>
+                        <button id="startBtn" class="btn btn-primary btn-lg">Start Test</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Page -->
+    <section id="quiz" class="container mt-5 d-none">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+                        <span>Question <span id="qNum">1</span> of 15</span>
+                        <span id="timer" class="badge bg-danger fs-6">30:00</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 id="qText" class="mb-4"></h5>
+                        <div id="options" class="mb-4"></div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <button id="prevBtn" class="btn btn-secondary" disabled>Previous</button>
+                        <button id="nextBtn" class="btn btn-primary">Next</button>
+                        <button id="submitBtn" class="btn btn-success d-none">Submit Test</button>
+                    </div>
+                    <!-- Inside #quiz section, e.g., after the timer or navigation buttons -->
+                    <div class="d-flex justify-content-end mb-3"> <!-- Right-aligned for subtlety -->
+                        <button id="end-exam-btn" type="button" class="btn btn-danger">End Exam</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Page -->
+    <section id="results" class="container mt-5 d-none">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow text-center">
+                    <div class="card-body">
+                        <h2 class="mb-4 text-success">Test Completed!</h2>
+                        <div class="row mb-4">
+                            <div class="col-md-3"><strong>Total Questions:</strong> 15</div>
+                            <div class="col-md-3"><strong>Attempted:</strong> <span id="attempted">0</span></div>
+                            <div class="col-md-3"><strong>Correct:</strong> <span id="correct">0</span></div>
+                            <div class="col-md-3"><strong>Wrong:</strong> <span id="wrong">0</span></div>
+                        </div>
+                        <div class="progress mb-4" style="height: 20px;">
+                            <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;"></div>
+                        </div>
+                        <h4>Score: <span id="percentage">0</span></h4>
+                        <button onclick="location.reload()" class="btn btn-primary mt-3">Retake Test</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theme selector & End Exam -->
+    <div id="exam-controls" style="display:flex;gap:12px;align-items:center;">
+    <label for="theme-select">Theme:</label>
+    <select id="theme-select" aria-label="Select theme">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+
+    <button id="end-exam-btn" type="button">End Exam</button>
+    </div>
+
+    <!-- Final result modal (hidden by default) -->
+    <div id="result-modal" role="dialog" aria-hidden="true" style="display:none;">
+    <div id="result-content">
+        <h2>Exam Ended</h2>
+        <p id="result-text"></p>
+        <button id="result-close">Close</button>
+    </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
